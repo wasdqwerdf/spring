@@ -18,7 +18,11 @@ version = properties("pluginVersion").get()
 
 // Configure project's dependencies
 repositories {
-    mavenCentral()
+//    mavenCentral()
+    // 使用阿里云Maven仓库
+    maven {
+        url = uri("https://maven.aliyun.com/repository/public")
+    }
 }
 
 // Dependencies are managed with Gradle version catalog - read more: https://docs.gradle.org/current/userguide/platforms.html#sub:version-catalog
@@ -34,11 +38,14 @@ kotlin {
 // Configure Gradle IntelliJ Plugin - read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
     pluginName = properties("pluginName")
-    version = properties("platformVersion")
-    type = properties("platformType")
+//    version = properties("platformVersion")
+//    type = properties("platformType")
 
     // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file.
     plugins = properties("platformPlugins").map { it.split(',').map(String::trim).filter(String::isNotEmpty) }
+
+    // 使用本地IDE进行调试
+    localPath.set("D:\\Program Files\\IntelliJ IDEA Community Edition 2024.1.4")
 }
 
 // Configure Gradle Changelog Plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin

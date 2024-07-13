@@ -1,18 +1,16 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.wasdqwerdf.spring</id>
-    <name>spring</name>
+    <name>Spring</name>
     <vendor>wasdqwerdf</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
+    <resource-bundle>messages.SpringBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.wasdqwerdf.spring.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <moduleBuilder builderClass="com.github.wasdqwerdf.spring.projectWizard.SpringModuleBuilder"/>
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.github.wasdqwerdf.spring.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
 </idea-plugin>

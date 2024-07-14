@@ -38,14 +38,14 @@ kotlin {
 // Configure Gradle IntelliJ Plugin - read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
     pluginName = properties("pluginName")
-//    version = properties("platformVersion")
-//    type = properties("platformType")
+    version = properties("platformVersion")
+    type = properties("platformType")
 
     // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file.
     plugins = properties("platformPlugins").map { it.split(',').map(String::trim).filter(String::isNotEmpty) }
 
     // 使用本地IDE进行调试
-    localPath.set("D:\\Program Files\\IntelliJ IDEA Community Edition 2024.1.4")
+    // localPath.set("D:\\Program Files\\IntelliJ IDEA Community Edition 2024.1.4")
 }
 
 // Configure Gradle Changelog Plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
